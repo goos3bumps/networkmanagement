@@ -16,9 +16,12 @@ for count in range(0,len(HOST)):
                 tn.read_until("Password: ")
                 tn.write(password + "\n")
                 tn.write("conf t\n")
-                for i in range(5,11):
+                for i in range(0,11):
+                        tn.write("no int loop " + str(i) + "\n")
+                        """
                         tn.write("int loop " + str(i) + "\n")
                         tn.write("desc pythonscript loopback int " + str(i) + "\n")
+                        """
                 tn.write("end\n")
                 tn.write("wr mem\n")
                 tn.write("\n")
